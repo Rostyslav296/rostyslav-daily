@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rostyslav296.github.io/rostyslav-daily/sitemap.xml

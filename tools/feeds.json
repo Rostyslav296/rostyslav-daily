@@ -1,0 +1,38 @@
+{
+  "_note": "The outlets the Researcher reads, by section. Each is a public RSS or Atom feed. Add or remove lines freely; a feed that fails is skipped and reported.",
+  "world": [
+    ["BBC News", "https://feeds.bbci.co.uk/news/world/rss.xml"],
+    ["NPR", "https://feeds.npr.org/1004/rss.xml"],
+    ["The Guardian", "https://www.theguardian.com/world/rss"],
+    ["Al Jazeera", "https://www.aljazeera.com/xml/rss/all.xml"],
+    ["Deutsche Welle", "https://rss.dw.com/rdf/rss-en-world"]
+  ],
+  "us": [
+    ["NPR", "https://feeds.npr.org/1003/rss.xml"],
+    ["BBC News", "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml"],
+    ["The Guardian", "https://www.theguardian.com/us-news/rss"],
+    ["PBS NewsHour", "https://www.pbs.org/newshour/feeds/rss/headlines"],
+    ["CBS News", "https://www.cbsnews.com/latest/rss/us"]
+  ],
+  "tech": [
+    ["Ars Technica", "https://feeds.arstechnica.com/arstechnica/index"],
+    ["The Verge", "https://www.theverge.com/rss/index.xml"],
+    ["BBC News", "https://feeds.bbci.co.uk/news/technology/rss.xml"],
+    ["TechCrunch", "https://techcrunch.com/feed/"],
+    ["Wired", "https://www.wired.com/feed/rss"]
+  ],
+  "ai": [
+    ["MIT Technology Review", "https://www.technologyreview.com/topic/artificial-intelligence/feed"],
+    ["Ars Technica", "https://arstechnica.com/ai/feed/"],
+    ["The Verge", "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"],
+    ["VentureBeat", "https://venturebeat.com/category/ai/feed/"],
+    ["TechCrunch", "https://techcrunch.com/category/artificial-intelligence/feed/"]
+  ],
+  "robotics": [
+    ["IEEE Spectrum", "https://spectrum.ieee.org/feeds/topic/robotics.rss"],
+    ["The Robot Report", "https://www.therobotreport.com/feed/"],
+    ["TechCrunch", "https://techcrunch.com/category/robotics/feed/"],
+    ["Robohub", "https://robohub.org/feed/"],
+    ["MIT News", "https://news.mit.edu/topic/mitrobotics-rss.xml"]
+  ]
+}

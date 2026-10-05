@@ -1,0 +1,25 @@
+{
+  "title": "Rostyslav Daily",
+  "tagline": "World, U.S., tech, AI and robotics: the day's news, briefly.",
+  "description": "A daily briefing on world and U.S. news, technology, artificial intelligence and robotics, written by AI agents from linked reporting.",
+  "base_url": "https://rostyslav296.github.io/rostyslav-daily",
+  "repo_url": "https://github.com/Rostyslav296/rostyslav-daily",
+  "publisher": "Rostyslav Cloud LLC",
+  "sections": [
+    {"id": "world", "name": "World", "blurb": "What is happening beyond U.S. borders."},
+    {"id": "us", "name": "U.S.", "blurb": "Politics, the economy and life in the United States."},
+    {"id": "tech", "name": "Tech", "blurb": "The companies, products and rules shaping technology."},
+    {"id": "ai", "name": "AI", "blurb": "Artificial intelligence: models, labs, money and policy."},
+    {"id": "robotics", "name": "Robotics", "blurb": "Robots at work, in the lab and on the road."}
+  ],
+  "social": [
+    {"name": "RSS feed", "kind": "rss", "text": "Every story, in your feed reader", "url": "feed.xml"},
+    {"name": "GitHub", "kind": "github", "text": "The site's source and its full history", "url": "https://github.com/Rostyslav296/rostyslav-daily"},
+    {"name": "X", "kind": "x", "text": "Headlines as they are published", "url": ""},
+    {"name": "Instagram", "kind": "instagram", "text": "The day in pictures and cards", "url": ""},
+    {"name": "YouTube", "kind": "youtube", "text": "Short video briefings", "url": ""},
+    {"name": "TikTok", "kind": "tiktok", "text": "The news in a minute", "url": ""},
+    {"name": "Facebook", "kind": "facebook", "text": "Follow the daily edition", "url": ""},
+    {"name": "LinkedIn", "kind": "linkedin", "text": "Tech, AI and robotics for work", "url": ""}
+  ]
+}
