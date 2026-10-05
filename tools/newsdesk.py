@@ -518,7 +518,7 @@ def publish(brief_id, title, summary, content, by="Poster", push=True):
             b["status"], b["skipped_because"] = "skipped", problems
             save(path, b)
             return {"ok": False, "set_aside": True, "problems": problems,
-                    "fix": "This story has been refused four times and is set aside. Call NewsQueue and go on to the next."}
+                    "fix": "This story has been refused four times and is set aside. Call NewsQueue now and go on to the next brief."}
         save(path, b)
         return {"ok": False, "problems": problems, "fix": "Correct these and publish the same brief again."}
 
@@ -533,8 +533,15 @@ def publish(brief_id, title, summary, content, by="Poster", push=True):
     total = site_build.build()
     site = site_build.load_site()
     pushed = commit(f"Publish: {title}", push)
-    return {"ok": True, "url": f"{site['base_url'].rstrip('/')}/posts/{slug}.html", "section": b["section"], "words": count,
-            "stories_on_site": total, "pushed": pushed, "waiting": len(briefs("ready"))}
+    out = {"ok": True, "url": f"{site['base_url'].rstrip('/')}/posts/{slug}.html", "section": b["section"], "words": count,
+           "stories_on_site": total, "pushed": pushed, "waiting": len(briefs("ready"))}
+    following = queue()                                # hand the writer its next story with the good news
+    if following.get("waiting"):
+        out["next_brief"] = {k: following[k] for k in ("brief", "section", "what_it_is_about", "angle", "facts", "outlets")}
+        out["do_next"] = "Published. Now write the next brief (above) in your own words and call NewsPublish for it."
+    else:
+        out["do_next"] = "Published. No briefs are left. Call NewsStatus, then reply with the headline and link of each story you published."
+    return out
 
 
 def unpublish(slug, push=True):
@@ -578,7 +585,8 @@ def status():
             "today": [{"title": p["title"], "section": p["section"], "url": f"{site['base_url'].rstrip('/')}/posts/{p['slug']}.html"} for p in today],
             "briefs_waiting": len(briefs("ready")),
             "set_aside_today": [{"about": b["working_title"], "why": b.get("skipped_because", [])[:2]} for b in aside],
-            "last_research": (latest.get("made") or "never")[:16]}
+            "last_research": (latest.get("made") or "never")[:16],
+            "note": "Briefs are waiting to be written: call NewsQueue for the first." if briefs("ready") else "No briefs are waiting."}
 
 
 def main():
