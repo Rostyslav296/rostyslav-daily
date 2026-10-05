@@ -35,14 +35,27 @@ No build service and no dependencies: Python's standard library, plain HTML and 
 ## How a story gets here
 
 1. **Researcher** runs `newsdesk.py research`. It reads the feeds in `tools/feeds.json`,
-   keeps what is recent, groups the same story across outlets, and ranks stories by how
-   many outlets carry them. Researcher then files a **brief** for each story it picks:
-   the facts, the angle, and the links.
-2. **Poster** takes each brief from the queue, writes the story in its own words, and
-   runs `newsdesk.py publish`. That checks the story (length, a headline and summary of
-   sensible size, key points, "why it matters", at least one source, not a repeat, the
-   day's limits), writes its file into `content/posts/`, rebuilds the site, commits and
-   pushes. A story that fails a check is refused with the reason, and Poster fixes it.
+   keeps what is recent, drops columns, deals and reviews, groups the same story across
+   outlets, and ranks stories by how many outlets carry them. For each story it picks,
+   Researcher reads the articles themselves (`story`) and files a **brief** (`brief`):
+   three to seven facts, the angle, and the links. The desk refuses a brief whose facts
+   carry a name or a number that is not in the sources, and refuses to brief a story it
+   could not read enough of.
+2. **Poster** takes one brief at a time from the queue (`queue`), writes the story in its
+   own words, and runs `newsdesk.py publish`. The desk refuses a story that
+   - runs eight words in a row the same as a source,
+   - has a sentence the brief does not support, or a name or number that is not in it,
+   - strays from its brief, or uses a source's headline as its own,
+   - is the wrong length or shape, repeats a published story, or goes over the day's
+     limits (14 stories, 4 per section).
+
+   Each refusal gives the reason and Poster corrects it; after four refusals the story is
+   set aside. An accepted story is written into `content/posts/`, the site is rebuilt,
+   committed and pushed, and the desk hands Poster its next brief.
+
+These checks compare words. They catch copying and invention; they do not judge emphasis
+or context, and no person reads a story before it is published. Every story links the
+reports it was written from.
 
 The agents live in the Rostyslav app and work twice a day while it is open and the
 project is switched on. The desk's working files (`desk/`) stay on the machine that runs
